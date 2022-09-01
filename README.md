@@ -18,7 +18,9 @@ To solve this challenge I have trained a MaskRCNN pytorch model to detect ideal 
 <img src = './infer/278_0.png'>
 <img src = './infer/987_0.png'>
 <br><br><br>
-All the resultant outputs from the Test Set can be found in the <b>infer</b> folder
+
+## <ins>All the resultant outputs from the Test Set can be found in the <b>infer</b> folder</ins>
+
 <br><br><br>
 
 # To Run the code
