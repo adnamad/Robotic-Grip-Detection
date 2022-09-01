@@ -31,9 +31,9 @@ class GripperDataset(Dataset):
         return img_ids
 
     def get_fps(self, mode):
-        color_fp = "C:/Users/Adnan/Desktop/work/challenge/data/{}/color/{}.png"
-        depth_fp = "C:/Users/Adnan/Desktop/work/challenge/data/{}/depth/{}.png"
-        label_fp = "C:/Users/Adnan/Desktop/work/challenge/data/{}/label/{}.png"
+        color_fp = "./data/{}/color/{}.png"
+        depth_fp = "./data/{}/depth/{}.png"
+        label_fp = "./data/{}/label/{}.png"
 
         all_color_fps = []
         all_depth_fps = []
@@ -52,7 +52,7 @@ class GripperDataset(Dataset):
     def get_valid_indexes(self, mode):
 
         valid_idx = []
-        label_fp = "C:/Users/Adnan/Desktop/work/challenge/data/{}/label/{}.png"
+        label_fp = "./data/{}/label/{}.png"
 
         for img_idx in self.all_img_idx:
             f = label_fp.format(mode, img_idx)
@@ -107,34 +107,6 @@ class GripperDataset(Dataset):
             bbox.append([box[1], box[0], box[3], box[2]])
 
         boxes = torch.tensor(bbox, dtype=torch.float32)
-
-        # num_objs = masks.shape[0]
-        # # boxes = torch.zeros([masks.shape[0], 4], dtype=torch.float32)
-
-        # boxes = []
-        # for i in range(num_objs):
-        #     breakpoint()
-        #     pos = np.where(masks[i])
-        #     xmin = np.min(pos[1])
-        #     xmax = np.max(pos[1])
-        #     ymin = np.min(pos[0])
-        #     ymax = np.max(pos[0])
-        #     # Check if area is larger than a threshold
-        #     # A = abs((xmax - xmin) * (ymax - ymin))
-        #     # print(A)
-        #     # if A < 5:
-        #     #     print("Nr before deletion:", num_objs)
-        #     #     obj_ids = np.delete(obj_ids, [i])
-        #     #     # print('Area smaller than 5! Box coordinates:', [xmin, ymin, xmax, ymax])
-        #     #     print("Nr after deletion:", len(obj_ids))
-        #     #     continue
-        #     #     # xmax=xmax+5
-        #     #     # ymax=ymax+5
-
-        #     boxes.append([xmin, ymin, xmax, ymax])
-        #     print(boxes)
-
-        # boxes = torch.tensor(boxes, dtype=torch.float32)
 
         labels = np.ones((masks.shape[0]))
         labels = torch.tensor(labels, dtype=torch.int64)
