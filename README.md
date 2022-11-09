@@ -1,5 +1,5 @@
 # Robotic-Gripping-Detection
-pytorch model to detect ideal gripping surfaces for robotic arms.
+Pytorch model to detect ideal gripping surfaces for robotic arms.
 # Overview
 
 To solve this challenge I have trained a MaskRCNN pytorch model to detect ideal gripping surfaces. The input was rgbd images (depth was cancatenated to the color images) and the model was finetuned on the given training set. To account for that I swapped out the first conv layer and the bottom head layers. I tried a bunch of augmentations but the performance surpisingly went down, so I didnt include it in the final solution. I tried multiple hyperparameters and visualized the results on WandB. The loss plot for a few runs is attached below.
