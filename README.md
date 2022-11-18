@@ -1,4 +1,4 @@
-# Robotic-Gripping-Detection
+# Robotic-Grip-Detection
 Pytorch model to detect ideal gripping surfaces for robotic arms.
 # Overview
 
